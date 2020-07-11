@@ -1,0 +1,23 @@
+{% extends 'plantillasBase/baseAdmin.html' %}
+{% block content %}
+
+{% block meta %}
+  <title>Eliminar categoria</title>
+{% endblock %}
+
+<div class="alert alert-info" role="alert">
+  <h4 class="text-center alert-heading">ELIMINAR CATEGORIA</h4>
+  <p class= "text-center font-weight-bold">Se eliminará la categoría seleccionada por el administrador </p>
+</div>
+<form method="post">
+	{% csrf_token %}
+	<h3>Desea eliminar la categoría cuyo id es: {{ object.id_categoria}} y de nombre: {{ object.descripcion_cat }}?</h3>
+	<button class="btn btn-primary" type="submit">Eliminar</button>
+	<a class="btn btn-dark" href="{% url 'categoria:categoria_listar' %}">Cancelar</a>
+	
+</form>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
