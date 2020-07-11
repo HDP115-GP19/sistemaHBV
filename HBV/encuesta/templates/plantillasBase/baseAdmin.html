@@ -1,0 +1,69 @@
+<!-- Cargar archivos estáticos -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- tags metadata requeridos -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Archivos mignificafos y compilados del CSS de Boostrap -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+  <!-- Mi propio css -->
+  <link rel="stylesheet" href="{% static 'css/mycss.css' %}"/>
+  <!-- Obtener archivos fuentes de Font awesome-->
+  <script src="https://kit.fontawesome.com/52edad9896.js" crossorigin="anonymous"></script>
+  <!-- Bloque meta -->
+  {% block meta %}
+  <title>Archivo base | Admin</title>
+  {% endblock %}
+
+</head>
+<body>
+  <!-- Incluir el nav-bar para el entorno del administrador -->
+  {% block navbar %}
+  {% include "plantillasBase/navbarAdmin.html" %}
+  {% endblock %}
+
+  <!-- Bloque para el contenido principal del template -->
+  <div class="container mycontainer">
+    {% block content %}
+    <h1 class="text-center"><i class="fas fa-user-cog"></i> BIENVENIDO</h1>
+    {% endblock %}
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="navbar-dark bg-dark text-white">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <p>Universidad de El Salvador -- HBV</p>
+    </div>
+  </footer>
+
+  <!-- Librerías de jQuery -->
+  <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Archivos compilados de JavaScript -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  <!-- Cerrar navbar-collapse cliqueando fuera del nav-bar en mobil-view -->
+  <script type="text/javascript">
+    function OnwindowClick(elem , action){
+      $(document).on('click',function(e){
+        if (!$(elem).is(e.target) // if the target of the click isn't the container...
+        && $(elem).has(e.target).length === 0) // ... nor a descendant of the container
+          {
+            action();
+          }
+      });
+    }
+    // OnwindowClick(elem , action) add the prevent elements in `elem` something like this
+    OnwindowClick('#navbar-collapse', function(){
+      $('.navbar-collapse').collapse('hide');
+    });
+  </script>
+
+  <!-- Bloque script -->
+  {% block script %}{% endblock%}
+
+</body>
+</html>

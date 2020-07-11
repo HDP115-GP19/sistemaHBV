@@ -1,0 +1,18 @@
+<!-- Heredar de baseAdmin.html -->
+{% extends "plantillasBase/baseAdmin.html" %}
+
+<!-- Modificar contenido del bloque meta -->
+{% block meta %}
+  <title>Archivo base | User</title>
+{% endblock %}
+
+<!-- Modificar contenido del bloque navbar -->
+{% block navbar %}
+<!-- Inclusión del navbar para el entorno del usuario-->
+{% include "plantillasBase/navbarUser.html" %}
+{% endblock %}
+
+<!-- Modificar contenido del bloque content-->
+{% block content %}
+<h1 class="text-center"><i class="fas fa-user"></i> USUARIO</h1>
+{% endblock %}
