@@ -1,0 +1,50 @@
+{% extends 'plantillasBase/baseAdmin.html' %}
+{% block content %}
+
+{% block meta %}
+  <title>Listado de preguntas</title>
+{% endblock %}
+
+<div class="alert alert-info" role="alert">
+  <h4 class="text-center alert-heading">LISTADO DE PREGUNTAS</h4>
+  <p class="text-center font-weight-bold">Esta es una lista de las preguntas existentes en nuestro sistema</p>
+</div>
+ <a class="btn btn-dark btn-block font-weight-bold" href="{% url 'encuesta:pregunta_crear' %}">Nueva pregunta</a>
+<hr>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th class="text-center font-weight-bold">Id</th>
+      <th class="text-center font-weight-bold">Nombre</th>
+      <th class="text-center font-weight-bold">ID de Categoría</th>
+      <th class="text-center font-weight-bold">Categoría a la que pertenece</th>
+      <th class="text-center font-weight-bold">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if object_list %}
+    {% for pregunta in object_list %}
+    <tr>
+      <td class="text-center">{{ pregunta.id_pregunta }}</td>
+      <td class="text-center">{{ pregunta.nombre_pre }} </td>
+      <td class="text-center">{{ pregunta.fk_id_categoria.id_categoria }} </td>
+      <td class="text-center">{{ pregunta.fk_id_categoria.descripcion_cat }} </td>
+      <td class="text-center">
+        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+          <a class="btn btn-primary btn-sm" href="{% url 'encuesta:pregunta_editar' pregunta.id_pregunta %}">Modificar</a>
+          <a class="btn btn-secondary btn-sm" href="{% url 'encuesta:pregunta_eliminar' pregunta.id_pregunta %}">Detalle</a> 
+          <a class="btn btn-dark btn-sm" href="{% url 'encuesta:pregunta_eliminar' pregunta.id_pregunta %}">Eliminar</a> 
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h2>NO HAY REGISTROS DE PREGUNTA</h2>
+    {% endif %}
+
+  </tbody>
+</table>
+
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends 'plantillasBase/baseAdmin.html' %}
+{% block content %}
+
+{% block meta %}
+  <title>Detalle de pregunta</title>
+{% endblock %}
+	<div class="alert alert-info" role="alert">
+  <h4 class="text-center alert-heading">LISTADO DE PREGUNTAS</h4>
+  <p class="text-center font-weight-bold">Esta es una lista de las preguntas existentes en nuestro sistema</p>
+</div>
+ <a class="btn btn-dark btn-block font-weight-bold" href="{% url 'encuesta:pregunta_crear' %}">Nueva pregunta</a>
+<hr>
+{% endblock %}

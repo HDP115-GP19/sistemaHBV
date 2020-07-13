@@ -1,0 +1,22 @@
+{% extends 'plantillasBase/baseAdmin.html' %}
+
+{% block meta %}
+  <title>Crear pregunta</title>
+{% endblock %}
+
+{% block content %}
+	<div class="alert alert-info" role="alert">
+	  <h4 class="text-center alert-heading">NUEVA PREGUNTA</h4>
+	  <p class= "text-center font-weight-bold">Se añadirá una nueva pregunta al sistema</p>
+	</div>
+	  <form method="post">
+	    {% csrf_token %}
+	    {{ form.as_p}}
+	    <button class="btn btn-primary"	type="submit">Guardar</button>
+	    <a class="btn btn-dark" href="{% url 'encuesta:pregunta_listar' %}">Cancelar</a>
+	  </form>
+{%endblock%}
+
+{% block footer %}
+
+{% endblock %}
