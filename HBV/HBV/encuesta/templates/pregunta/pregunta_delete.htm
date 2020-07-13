@@ -5,13 +5,9 @@
   <title>Eliminar pregunta</title>
 {% endblock %}
 
-<div class="alert alert-info" role="alert">
-  <h4 class="text-center alert-heading">ELIMINAR PREGUNTA</h4>
-  <p class= "text-center font-weight-bold">Se eliminará la pregunta seleccionada por el administrador </p>
-</div>
 <form method="post">
 	{% csrf_token %}
-	<h3>Desea eliminar la categoría cuyo id es: {{ object.id_pregunta}} y de nombre: {{ object.nombre_pre }}?</h3>
+	<h3>Desea eliminar : {{ object.nombre_pre }}?</h3>
 	<button class="btn btn-primary" type="submit">Eliminar</button>
 	<a class="btn btn-dark" href="{% url 'encuesta:pregunta_listar' %}">Cancelar</a>
 	

@@ -17,8 +17,7 @@
     <tr>
       <th class="text-center font-weight-bold">Id</th>
       <th class="text-center font-weight-bold">Nombre</th>
-      <th class="text-center font-weight-bold">ID de Categoría</th>
-      <th class="text-center font-weight-bold">Categoría a la que pertenece</th>
+      <th class="text-center font-weight-bold">Categoría</th>
       <th class="text-center font-weight-bold">Acciones</th>
     </tr>
   </thead>
@@ -28,7 +27,6 @@
     <tr>
       <td class="text-center">{{ pregunta.id_pregunta }}</td>
       <td class="text-center">{{ pregunta.nombre_pre }} </td>
-      <td class="text-center">{{ pregunta.fk_id_categoria.id_categoria }} </td>
       <td class="text-center">{{ pregunta.fk_id_categoria.descripcion_cat }} </td>
       <td class="text-center">
         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">

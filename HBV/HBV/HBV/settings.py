@@ -85,9 +85,9 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hbv',
+        'NAME': 'hbvdb2',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'admin01',
         'HOST': 'localhost',
         'PORT': 5432,
     }
