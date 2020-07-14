@@ -3,7 +3,7 @@ from django.http import HttpResponse
 # *******************CLASES********************************
 from django.urls import reverse_lazy
 #libreria para vista de tipo lista de django
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 #*********************************************************
 from encuesta.forms import CategoriaForm, PreguntaForm
 from encuesta.models import Categoria, Pregunta
@@ -61,5 +61,10 @@ class PreguntaUpdate(UpdateView):
 class PreguntaDelete(DeleteView):
 	model = Pregunta
 	template_name = 'pregunta/pregunta_delete.htm'
+	success_url = reverse_lazy('encuesta:pregunta_listar')
+
+class PreguntaDetail(DetailView):
+	model = Pregunta
+	template_name = 'pregunta/pregunta_detail.htm'
 	success_url = reverse_lazy('encuesta:pregunta_listar')
 #*******************************************************************************************************

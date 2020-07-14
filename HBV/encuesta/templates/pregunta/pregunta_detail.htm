@@ -1,0 +1,19 @@
+{% extends 'plantillasBase/baseAdmin.html' %}
+{% block content %}
+
+{% block meta %}
+  <title>Detalle de pregunta</title>
+{% endblock %}
+
+<form method="post">
+	{% csrf_token %}
+  <h3>La pregunta se llama : {{ object.nombre_pre }}</h3>
+  <h3>Pertenece a la categoría : {{object.fk_id_categoria.descripcion_cat}}</h3>
+  <a class="btn btn-dark" href="{% url 'encuesta:pregunta_listar' %}">Regresar</a>
+	
+</form>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

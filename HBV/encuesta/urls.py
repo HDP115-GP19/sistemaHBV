@@ -1,5 +1,5 @@
 from django.conf.urls import url,include
-from encuesta.views import CategoriaList, CategoriaCreate, CategoriaUpdate, CategoriaDelete, PreguntaList, PreguntaDelete, PreguntaCreate, PreguntaUpdate
+from encuesta.views import CategoriaList, CategoriaCreate, CategoriaUpdate, CategoriaDelete, PreguntaList, PreguntaDelete, PreguntaCreate, PreguntaUpdate, PreguntaDetail
 
 app_name="encuesta"
 urlpatterns = [
@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^nuevo_pre$',PreguntaCreate.as_view(), name='pregunta_crear'),
     url(r'^editar_pre/(?P<pk>\d+)/$',PreguntaUpdate.as_view(), name='pregunta_editar'),
     url(r'^eliminar_pre/(?P<pk>\d+)/$',PreguntaDelete.as_view(), name='pregunta_eliminar'),
+    url(r'^detalle_pre/(?P<pk>\d+)/$',PreguntaDetail.as_view(), name='pregunta_detalle'),
 ]
