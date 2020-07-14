@@ -17,10 +17,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
 from encuesta import views
+from django.contrib.auth.views import login,logout_then_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #Urls temporales
     path('entornoAdmin/',include('encuesta.urls',namespace="encuesta")),
     path('entornoUser/', views.entorno_user),
+    url(r'^accounts/login/', login, {'template_name':'login.html'}, name='login' ),
+    url(r'^logout/', logout_then_login,name='logout'),
+
 ]
