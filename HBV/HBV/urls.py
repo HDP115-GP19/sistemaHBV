@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
 from encuesta import views
+from encuesta import estadisticasView
 from django.contrib.auth.views import login,logout_then_login
 
 urlpatterns = [
@@ -26,5 +27,6 @@ urlpatterns = [
     path('entornoUser/', views.entorno_user),
     url(r'^accounts/login/', login, {'template_name':'login.html'}, name='login' ),
     url(r'^logout/', logout_then_login,name='logout'),
+    path('estadisticas/', estadisticasView.Estadistica.as_view(), name = "estadisticas"),
 
 ]
