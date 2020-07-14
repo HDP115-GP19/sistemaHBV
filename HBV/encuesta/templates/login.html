@@ -1,11 +1,16 @@
 {% extends 'plantillasBase/baseAdmin.html' %}
 
-{% block title %}
-
+{% block meta %}
+<title>Login</title>
 {% endblock %}
 {% block navbar%}
 {% endblock %}
+
 {% block content %}
+<div class="alert alert-info" role="alert">
+      <h4 class="text-center alert-heading">BIENVENIDO A HBV</h4>
+      <p class= "text-center font-weight-bold">Deberá ingresar sus credenciales para entrar al area de administración</p>
+</div>
 
 <form  method="post">
 	{% csrf_token %}
@@ -39,3 +44,6 @@
 
 
 {% endblock %}
+
+{% block footer%}
+{%endblock%}
