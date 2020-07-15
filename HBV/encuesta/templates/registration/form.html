@@ -1,0 +1,23 @@
+{% extends 'plantillasBase/baseAdmin.html' %}
+
+{% block meta %}
+
+{% endblock %}
+{% block navbar%}
+{% endblock %}
+
+{% block content %}
+<center>
+<form method="post">
+    {% csrf_token %}
+    <label >Ingrese Correo de Recuperacion:</label>
+    <br>
+    <br>
+    <label for="id_email">Correo:</label> {{ form.email }} 
+    <input type="submit" value="Enviar"/>
+</form>
+</center>
+{% endblock %}
+
+{% block footer%}
+{%endblock%}

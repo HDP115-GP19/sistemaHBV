@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'hbvdb',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'ah15035',
         'HOST': 'localhost',
         'PORT': 5432,
     }
@@ -137,3 +137,10 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 LOGIN_REDIRECT_URL = reverse_lazy('encuesta:categoria_listar')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
+
+EMAIL_USE_TLS=True
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='hdp115proyectogp19@gmail.com'
+EMAIL_HOST_PASSWORD='Grupo19hdp'
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
