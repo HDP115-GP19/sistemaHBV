@@ -15,6 +15,16 @@
           <li class="nav-item active">
             <a class="nav-link" href="#SobreNosotros">Sobre nosotros <span class="sr-only">(current)</span></a>
           </li>
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'encuesta:pregunta_listar' %}">Admin <span class="sr-only">(current)</span></a>
+          </li>
+         {% else %}
+         
+
+        {% endif %}
+
         </ul>
       </div>
     </div>
