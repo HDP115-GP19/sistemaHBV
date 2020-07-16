@@ -9,8 +9,8 @@
 <form method="post">
 	{% csrf_token %}
 	<h3>Desea eliminar la categoría: {{ object.descripcion_cat }}?</h3>
-	<button class="btn btn-primary" type="submit">Eliminar</button>
-	<a class="btn btn-dark" href="{% url 'encuesta:categoria_listar' %}">Cancelar</a>
+	<button class="btn btn-primary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar</button>
+	<a class="btn btn-dark" href="{% url 'encuesta:categoria_listar' %}"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar</a>
 	
 </form>
 {% endblock %}

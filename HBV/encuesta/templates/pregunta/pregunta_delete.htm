@@ -8,8 +8,8 @@
 <form method="post">
 	{% csrf_token %}
 	<h3>Desea eliminar : {{ object.nombre_pre }}?</h3>
-	<button class="btn btn-primary" type="submit">Eliminar</button>
-	<a class="btn btn-dark" href="{% url 'encuesta:pregunta_listar' %}">Cancelar</a>
+	<button class="btn btn-primary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar</button>
+	<a class="btn btn-dark" href="{% url 'encuesta:pregunta_listar' %}"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar</a>
 	
 </form>
 {% endblock %}
