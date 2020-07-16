@@ -1,1 +1,188 @@
+<!-- Heredar de baseUser.html -->
 {% extends "plantillasBase/baseUser.html" %}
+
+<!-- Cargar archivos estáticos -->
+{% load static %}
+
+<!-- Modificar contenido del bloque meta -->
+{% block meta %}
+	<title>Encuesta</title>
+{% endblock %}
+
+{% block content %}
+<div class="card border-dark mb-3" style="max-width: 100rem;">
+ 	<div class="card-header text-center">
+ 		<h2>Encuesta</h2>
+ 	</div>
+ 		<div class="card-body text-dark">
+ 			<form id="regForm" action="." method="post">
+ 				{% csrf_token %}
+  			<br>
+    		<h4 class="card-title text-center">Seleccione su departamento y municipio</h4>
+    		<br>
+    		{% if form.errors %}
+					<p class="text-center text-danger" >Por favor verifique los campos</p>
+				{% endif %}
+    		<div class="row">
+    			<div class="col-lg-2">
+    			</div>
+    			<div class="col-lg-2">
+    				{{ form.fk_id_departamento.erros }}
+    				{{ form.fk_id_departamento.label_tag }}
+    			</div>
+    			<div class="col-lg-6">
+    				{{ form.fk_id_departamento}}
+    			</div>
+    			<div class="col-lg-2">
+    			</div>
+    		</div>
+    		<br>
+    		<div class="row">
+    			<div class="col-lg-2">
+    			</div>
+    			<div class="col-lg-2">
+    				{{ form.fk_id_municipio.erros }}
+    				{{ form.fk_id_municipio.label_tag }}
+    			</div>
+    			<div class="col-lg-6">
+    				{{ form.fk_id_municipio}}
+    			</div>
+    			<div class="col-lg-2">
+    			</div>
+    		</div>
+    		<br>
+    		<br>
+    		<br>
+    		<!-- ENCUESTA -->
+    		<div class="content-fluid"><!-- PARA OCULTARLO -->
+    			<h5 class="card-title text-center">Proceda con la encuesta</h5>
+    			<div class="card-body text-dark">
+    				{% if preguntas %}
+    					{% for categoria in categorias %}
+    						<div class="row">
+    							<div class="col-lg-1">
+    							</div>
+    							<div class="col-lg-11">
+    								<br>
+    								<h4 class = "text-justify" >
+    									{{ categoria.descripcion_cat }}
+    								</h4>
+  	  						</div>
+	    					</div>
+    						{% for pregunta in preguntas %}
+    							{% if pregunta.fk_id_categoria.id_categoria == categoria.id_categoria %}
+    								<div class="row">
+    									<div class="col-lg-1">
+    									</div>
+    									<div class="col-lg-10">
+    										<p class = "text-justify" >
+    											{{ pregunta.nombre_pre }}
+    										</p>
+  	  								</div>
+  	  								<div class="col-lg-1">
+    									</div>
+	    							</div>
+
+
+	    							<div class="row">
+    									<div class="col-lg-1">
+    									</div>
+  	  								<div class="col-lg-11">
+	    									<div class="col-lg-2">
+	    										<!--<ul id="id_valor">
+	    											<li>
+	    												<label for="id_valor_0">
+	    													<input id="id_valor_0" type="radio" name="{{ pregunta.id_pregunta }}" value = "1" required="">
+	    													Si
+	    												</label>
+	    											</li>
+	    											<li>
+	    												<label for="id_valor_1">
+	    													<input id="id_valor_1" type="radio" name="{{ pregunta.id_pregunta }}" value = "0" required="">
+	    													No
+	    												</label>
+	    											</li>
+	    										</ul>-->
+	    										<!--{{ form2.valor.errors }}-->
+    											<!--<input id="id_valor_0" type="radio" name="{{ pregunta.id_pregunta }}" value = "1">
+    											<label for="1">Si</label>-->
+    											<!--{{ form2.valor.errors }}-->
+    											<!--<input id="id_valor_1" type="radio" name="{{ pregunta.id_pregunta }}" value = "0">
+    											<label for="0">No</label><br>-->
+    											<!--<input type="radio" id="siInput" name="gender" value="1">
+  												<label for="1">Si</label>
+  												<input type="radio" id="noInput" name="gender" value="0">
+  												<label for="0">No</label>-->
+  												{{ form2.valor }}
+    										</div>
+    										<br>
+    									</div>
+  	  							</div>
+    							{% else %}
+    							{% endif %}
+    						{% endfor %}
+    					{% endfor %}
+    					<!--{{ form2.valor }}-->
+    					<!--{% for pregunta in preguntas %}
+    						<div class="row">
+    							<div class="col-lg-1">
+    							</div>
+    							<div class="col-lg-11">
+    								<p class = "text-justify" >
+    									{{ pregunta.nombre_pre }}
+    								</p>
+  	  						</div>
+	    					</div>-->
+
+    						<!--<div class="row">
+    							<div class="col-lg-1">
+    							</div>
+  	  						<div class="col-lg-11">
+	    							<div class="col-lg-2">
+    									<input type="radio" name="{{pregunta.id_pregunta}}" value = "1">
+    									<label for="1">Si</label>
+    									<input type="radio" name="{{pregunta.id_pregunta}}" value = "0">
+    									<label for="0">No</label>
+    									<input type="radio" id="siInput" name="gender" value="1">
+  										<label for="1">Si</label>
+  										<input type="radio" id="noInput" name="gender" value="0">
+  										<label for="0">No</label>-->
+  										<!--{{ form2.valor }}
+    								</div>
+    							</div>
+  	  					</div>
+	    					<br>
+	    				{% endfor %}-->
+    				{% else %}
+    				<div class="row">
+    					<div class="col-lg-12 text-center">
+    						<br>
+    						<i class="fas fa-info-circle text-info fa-3x"></i>
+    						<br>
+    						<h2 class="text-info"> No hay preguntas disponibles</h2>
+    						<br>
+    						<br>
+    					</div>
+    				</div>
+    				{% endif %}
+    			</div>
+    		</div>
+				<div class="form-group" style="text-align: center; padding: 2%;">
+					<button type="submit" class="btn btn-dark">Enviar</button>
+    			<!--<button type="button" class="btn btn-secondary">Cancelar</button>-->
+    			<a href="{% url 'estadisticas' %}" class="btn btn-secondary">Cancelar</a>
+				</div>
+			</form>
+  	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+	preguntas = {{preguntas|safe}};
+	a = 0;
+	$(document).ready(function () {
+  			$("#id_valor_0").attr('name', 'puto');
+	});
+</script>
+{% endblock %}

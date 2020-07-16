@@ -1,0 +1,101 @@
+<!-- Heredar de baseUser.html -->
+{% extends "plantillasBase/baseUser.html" %}
+
+<!-- Cargar archivos estáticos -->
+{% load static %}
+
+<!-- Modificar contenido del bloque meta -->
+{% block meta %}
+  <title>Encuesta</title>
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div class="card border-dark mb-3" style="max-width: 100rem;">
+  <div class="card-header text-center">
+    <h2>Encuesta</h2>
+  </div>
+    <div class="card-body text-dark">
+      <form id="regForm" action="." method="post">
+        <br>
+        <h4 class="card-title text-center">Seleccione su departamento y municipio</h4>
+        <br>
+        {% if form.errors %}
+          <p class="text-center text-danger" >Por favor verifique los campos</p>
+        {% endif %}
+        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+        <div class="row">
+          <div class="col-lg-2">
+          </div>
+          <div class="col-lg-2">
+            {{ form.fk_id_departamento.label_tag }}
+          </div>
+          <div class="col-lg-6">
+            {{ form.fk_id_departamento}}
+          </div>
+          <div class="col-lg-2">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-2">
+          </div>
+          <div class="col-lg-2">
+            {{ form.fk_id_municipio.label_tag }}
+          </div>
+          <div class="col-lg-6">
+            {{ form.fk_id_municipio}}
+          </div>
+          <div class="col-lg-2">
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div class="content-fluid">
+          <h5 class="card-title text-center">Proceda con la encuesta</h5>
+          <div class="card-body text-dark">
+            {% if preguntas %}
+              {% for pregunta in preguntas %}
+                <div class="row">
+                  <div class="col-lg-1">
+                  </div>
+                  <div class="col-lg-11">
+                    <p class = "text-justify" >
+                      {{ pregunta.nombre_pre }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-1">
+                  </div>
+                  <div class="col-lg-11">
+                    <div class="col-lg-2">
+                      <input type="radio" name="Si{{ +1 }}" value = "1">
+                      <input type="radio" name="No{{ +1 }}" value = "0">-->
+                      <input type="radio" id="siInput" name="gender" value="1">
+                      <label for="1">Si</label>
+                      <input type="radio" id="noInput" name="gender" value="0">
+                      <label for="0">No</label>
+                      <!--{{ form2.valor }}-->
+                    </div>
+                  </div>
+                </div>
+                <br>
+              {% endfor %}
+            {% else %}
+              <h2>No hay preguntas</h2>
+            {% endif %}
+          </div>
+        </div>
+        <div class="form-group" style="text-align: center; padding: 2%;">
+          <button type="submit" class="btn btn-dark">Enviar</button>
+          <!--<button type="button" class="btn btn-secondary">Cancelar</button>-->
+          <a href="{% url 'estadisticas' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+      </form>
+    </div>
+</div>
+{% endblock %}

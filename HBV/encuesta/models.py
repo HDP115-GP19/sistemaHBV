@@ -20,13 +20,16 @@ class Departamento(models.Model):
 	class Meta:
 		db_table = 'departamento'
 
+	def __str__(self):
+		return '{}'.format(self.nombre_depa)
+
 
 class Encuesta(models.Model):
 	id_encuesta = models.AutoField(db_column = 'id_encuesta', primary_key = True)
 	fk_id_departamento = models.ForeignKey('Departamento', db_column = 'fk_id_departamento', on_delete = models.CASCADE)
 	fk_id_municipio = models.ForeignKey('Municipio', db_column = 'fk_id_municipio', on_delete = models.CASCADE)
-	fecha = models.DateField(db_column = 'fecha')
-	hora = models.TimeField(db_column = 'hora')
+	fecha = models.DateField(db_column = 'fecha', auto_now_add=True)#default = formatedDay
+	hora = models.TimeField(db_column = 'hora', auto_now_add=True)#default = formatedHour
 
 	class Meta:
 		db_table = 'encuesta'
@@ -39,6 +42,9 @@ class Municipio(models.Model):
 
 	class Meta:
 		db_table = 'municipio'
+
+	def __str__(self):
+		return '{}'.format(self.nombre_muni)
 
 
 class Pregunta(models.Model):
