@@ -26,7 +26,7 @@
     {% for pregunta in object_list %}
     <tr>
       <td class="text-center">{{ pregunta.id_pregunta }}</td>
-      <td class="text-center">{{ pregunta.nombre_pre }} </td>
+      <td>{{ pregunta.nombre_pre }} </td>
       <td class="text-center">{{ pregunta.fk_id_categoria.descripcion_cat }} </td>
       <td class="text-center">
         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
