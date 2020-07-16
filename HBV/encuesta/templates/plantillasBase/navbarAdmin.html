@@ -9,7 +9,7 @@
         <ul class="navbar-nav">
           <!-- Ver estadísticas -->
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'estadisticas' %}">Ver estadísticas <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'estadisticas' %}"><i class="fa fa-eye" aria-hidden="true"></i> Ver estadísticas <span class="sr-only">(current)</span></a>
           </li>
           <!-- Preguntas -->
           <li class="nav-item dropdown">
@@ -17,8 +17,8 @@
               Preguntas
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item text-white" href="{% url 'encuesta:pregunta_listar'%}">Listado de preguntas</a>
-              <a class="dropdown-item text-white" href="{%url 'encuesta:pregunta_crear'%}">Nueva pregunta</a>
+              <a class="dropdown-item text-white" href="{% url 'encuesta:pregunta_listar'%}"><i class="fa fa-list-alt" aria-hidden="true"></i> Listado de preguntas</a>
+              <a class="dropdown-item text-white" href="{%url 'encuesta:pregunta_crear'%}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nueva pregunta</a>
             </div>
           </li>
           <!-- Categorías -->
@@ -27,13 +27,13 @@
               Categorías
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item text-white" href="{% url 'encuesta:categoria_listar' %}">Listado de categorías</a>
-              <a class="dropdown-item text-white" href="{% url 'encuesta:categoria_crear' %}">Nueva categoría</a>
+              <a class="dropdown-item text-white" href="{% url 'encuesta:categoria_listar' %}"><i class="fa fa-list-alt" aria-hidden="true"></i> Listado de categorías</a>
+              <a class="dropdown-item text-white" href="{% url 'encuesta:categoria_crear' %}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nueva categoría</a>
             </div>
           </li>
           <!-- Salir -->
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'logout'%}">Salir <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'logout'%}">Salir <i class="fa fa-sign-out" aria-hidden="true"></i><span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>

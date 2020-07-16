@@ -12,6 +12,7 @@
       <p class= "text-center font-weight-bold">Deberá ingresar sus credenciales para entrar al area de administración</p>
 </div>
 
+<div class="container">
 <form  method="post">
 	{% csrf_token %}
     
@@ -34,16 +35,18 @@
     <div class="row">
     	<div class="col-md-6 col-md-offset-3">
     		<div class="form-group">
+             <input class="btn btn-primary" type="submit" value="Ingresar">   
              <a href="{% url 'password_reset' %}">Olvidé mi contraseña</a>   
-        		<input class="btn btn-primary" type="submit" value="Ingresar">
+        	
     	   </div>
         </div>
     </div>
     
 </form>
-
+</div>
 
 {% endblock %}
 
 {% block footer%}
 {%endblock%}
+

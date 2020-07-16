@@ -12,8 +12,8 @@
 	  <form method="post">
 	    {% csrf_token %}
 	    {{ form.as_p}}
-	    <button class="btn btn-primary"	type="submit">Guardar</button>
-	    <a class="btn btn-dark" href="{% url 'encuesta:pregunta_listar' %}">Cancelar</a>
+	    <button class="btn btn-primary"	type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+	    <a class="btn btn-dark" href="{% url 'encuesta:pregunta_listar' %}"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar</a>
 	  </form>
 {%endblock%}
 

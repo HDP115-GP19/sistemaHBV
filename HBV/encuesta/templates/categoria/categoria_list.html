@@ -9,7 +9,7 @@
   <h4 class="text-center alert-heading">LISTADO DE CATEGORIAS</h4>
   <p class="text-center font-weight-bold">Esta es una lista de las categorias existentes en nuestro sistema</p>
 </div>
- <a class="btn btn-dark btn-block font-weight-bold" href="{% url 'encuesta:categoria_crear' %}">Nueva categoría</a>
+ <a class="btn btn-dark btn-block font-weight-bold" href="{% url 'encuesta:categoria_crear' %}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nueva categoría</a>
 <hr>
 
 <table class="table table-bordered">
@@ -28,8 +28,8 @@
       <td class="text-center">{{ categoria.descripcion_cat }} </td>
       <td class="text-center">
         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <a class="btn btn-primary btn-sm" href="{% url 'encuesta:categoria_editar' categoria.id_categoria %}">Modificar</a>
-          <a class="btn btn-dark btn-sm" href="{% url 'encuesta:categoria_eliminar' categoria.id_categoria %}">Eliminar</a>  
+          <a class="btn btn-primary btn-sm" href="{% url 'encuesta:categoria_editar' categoria.id_categoria %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modificar</a>
+          <a class="btn btn-dark btn-sm" href="{% url 'encuesta:categoria_eliminar' categoria.id_categoria %}"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar</a>  
         </div>
       </td>
     </tr>

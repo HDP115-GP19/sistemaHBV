@@ -14,9 +14,9 @@
   <h3>Id: {{ object.id_pregunta }}</h3>	
   <h3>Descripcion: {{ object.nombre_pre }}</h3>
   <h3>Categoría: {{object.fk_id_categoria.descripcion_cat}}</h3>
-  <a class="btn btn-success btn-sm" href="{% url 'encuesta:pregunta_listar' %}">Aceptar</a>
-  <a class="btn btn-primary btn-sm" href="{% url 'encuesta:pregunta_editar' pregunta.id_pregunta %}">Modificar</a>
-  <a class="btn btn-dark btn-sm" href="{% url 'encuesta:pregunta_eliminar' pregunta.id_pregunta %}">Eliminar</a>	
+  <a class="btn btn-success btn-sm" href="{% url 'encuesta:pregunta_listar' %}"><i class="fa fa-undo" aria-hidden="true"></i> Aceptar</a>
+  <a class="btn btn-primary btn-sm" href="{% url 'encuesta:pregunta_editar' pregunta.id_pregunta %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modificar</a>
+  <a class="btn btn-dark btn-sm" href="{% url 'encuesta:pregunta_eliminar' pregunta.id_pregunta %}"><i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar</a>	
 </form>
 {% endblock %}
 
