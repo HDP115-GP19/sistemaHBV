@@ -21,7 +21,7 @@
 	<div class="col">
 		<p style = "font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-clipboard-list fa-lg" style="color: #23D558;"></i>&nbsp; Encuestas procesadas: {{ encuestas_procesadas }}</p>
 		<p style = "font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-exclamation-triangle fa-lg" style="color: #EE9308;"></i> Problemas agrupados en: {{ cantidad_categorias }} categorías</p>
-		<p style = "font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-list-ol fa-lg" style="color: #8563BA;"></i> Cantidad de preguntas por encuesta: {{ cantidad_preguntas }}</p>
+		<p style = "font-size: 15px">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-list-ol fa-lg" style="color: #8563BA;"></i> Preguntas por encuesta: {{ cantidad_preguntas }}</p>
 	</div>
 	<br>
 	<br>
@@ -249,13 +249,13 @@
         type: 'column'
     },
     title: {
-        text: 'Economía'
+        text: '{{ nombre_categoria_uno|safe }}'//'Economía'
     },
     subtitle: {
-        text: 'Probemas relacionados con la economía'
+        text: 'Probemas relacionados con {{ nombre_categoria_uno|safe }}'//economía
     },
     xAxis: {
-        categories: {{ categories_economia_graph|safe }},
+        categories: {{ categories_uno_graph|safe }},
         crosshair: true
     },
     yAxis: {
@@ -282,7 +282,7 @@
         name: 'Acumulado',
         showInLegend: false,
         colorByPoint: true,
-        data: {{ data_economia_graph|safe }}
+        data: {{ data_uno_graph|safe }}
     }]
 	});
 
@@ -292,13 +292,13 @@
         type: 'column'
     },
     title: {
-        text: 'Escases'
+        text: '{{ nombre_categoria_dos }}'
     },
     subtitle: {
-        text: 'Probemas relacionados con la escases'
+        text: 'Probemas relacionados con {{ nombre_categoria_dos }}'
     },
     xAxis: {
-        categories: {{ categories_escases_graph|safe }},
+        categories: {{ categories_dos_graph|safe }},
         crosshair: true
     },
     yAxis: {
@@ -325,7 +325,7 @@
         name: 'Acumulado',
         showInLegend: false,
         colorByPoint: true,
-        data: {{ data_escases_graph|safe }}
+        data: {{ data_dos_graph|safe }}
     }]
 	});
 
@@ -335,13 +335,13 @@
         type: 'column'
     },
     title: {
-        text: 'Miedo  a contagiarse'
+        text: '{{nombre_categoria_tres}}'
     },
     subtitle: {
-        text: 'Probemas relacionados con el factor miedo  a contagiarse'
+        text: 'Probemas relacionados con {{nombre_categoria_tres}}'
     },
     xAxis: {
-        categories: {{ categories_miedo_graph|safe }},
+        categories: {{ categories_tres_graph|safe }},
         crosshair: true
     },
     yAxis: {
@@ -368,7 +368,7 @@
         name: 'Acumulado',
         showInLegend: false,
         colorByPoint: true,
-        data: {{ data_miedo_graph|safe }}
+        data: {{ data_tres_graph|safe }}
     }]
 	});
 
@@ -379,13 +379,13 @@
         type: 'column'
     },
     title: {
-        text: 'Trabajo'
+        text: '{{nombre_categoria_cuatro}}'
     },
     subtitle: {
-        text: 'Probemas relacionados con el trabajo'
+        text: 'Probemas relacionados con {{nombre_categoria_cuatro}}'
     },
     xAxis: {
-        categories: {{ categories_trabajo_graph|safe }},
+        categories: {{ categories_cuatro_graph|safe }},
         crosshair: true
     },
     yAxis: {
@@ -412,7 +412,7 @@
         name: 'Acumulado',
         showInLegend: false,
         colorByPoint: true,
-        data: {{ data_trabajo_graph|safe }}
+        data: {{ data_cuatro_graph|safe }}
     }]
 	});	
 
@@ -423,13 +423,13 @@
         type: 'column'
     },
     title: {
-        text: 'Transporte'
+        text: '{{nombre_categoria_cinco}}'
     },
     subtitle: {
-        text: 'Probemas relacionados con el transporte'
+        text: 'Probemas relacionados con {{nombre_categoria_cinco}}'
     },
     xAxis: {
-        categories: {{ categories_transporte_graph|safe }},
+        categories: {{ categories_cinco_graph|safe }},
         crosshair: true
     },
     yAxis: {
@@ -456,7 +456,7 @@
         name: 'Acumulado',
         showInLegend: false,
         colorByPoint: true,
-        data: {{ data_transporte_graph|safe }}
+        data: {{ data_cinco_graph|safe }}
     }]
 	});	
 	</script>

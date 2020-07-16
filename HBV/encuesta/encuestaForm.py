@@ -19,7 +19,7 @@ class RespuestaForm(forms.ModelForm):
 	#fk_id_pregunta = 
 	#fk_id_encuesta
 	CHOICES = [(1,'Si'), (0,'No')]
-	valor = forms.ChoiceField(choices = CHOICES, widget = forms.RadioSelect())
+	valor = forms.ChoiceField(required=False, widget = forms.CheckboxInput())#choices = CHOICES, 
 
 	class Meta:
 		model = Respuesta
