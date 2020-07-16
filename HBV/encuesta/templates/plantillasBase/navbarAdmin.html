@@ -22,6 +22,10 @@
             </div>
           </li>
           <!-- Categorías -->
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'encuesta:categoria_listar'%}"><i class="fa fa-list-alt" aria-hidden="true"></i> Categorias <span class="sr-only">(current)</span></a>
+          </li>
+          <!-- >
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Categorías
@@ -29,8 +33,11 @@
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item text-white" href="{% url 'encuesta:categoria_listar' %}"><i class="fa fa-list-alt" aria-hidden="true"></i> Listado de categorías</a>
               <a class="dropdown-item text-white" href="{% url 'encuesta:categoria_crear' %}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nueva categoría</a>
+
             </div>
           </li>
+          <!-->
+
           <!-- Salir -->
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'logout'%}">Salir <i class="fa fa-sign-out" aria-hidden="true"></i><span class="sr-only">(current)</span></a>

@@ -115,7 +115,7 @@ def responderEncuesta(request):
 			#Se registra la respuesta
 			respuesta.save()
 
-			#return redirect('url_app_name:url_name')
+			return redirect('estadisticas')
 
 	context = {
 		'departamentos' : departamentos,
