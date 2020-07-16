@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from encuesta import views
 from encuesta import estadisticasView, encuestaView
-from django.contrib.auth.views import login,logout_then_login
+from django.contrib.auth.views import login,logout_then_login,password_reset,password_reset_done,password_reset_confirm, password_reset_complete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +29,8 @@ urlpatterns = [
     url(r'^logout/', logout_then_login,name='logout'),
     path('estadisticas/', estadisticasView.Estadistica.as_view(), name = "estadisticas"),
     path('encuesta/', encuestaView.Encuesta.as_view(), name = "encuesta"),
+    url(r'^reset/password_reset', password_reset, {'template_name':'registration/form.html','email_template_name':'registration/password_reset_email.html'}, name = 'password_reset'),
+    url(r'^reset/password_reset_done', password_reset_done, {'template_name':'registration/password_reset_done.html'},name='password_reset_done'),
+    url(r'^reset/(?P<uidb64>[0-94-Za-z_\-]+)/(?P<token>.+)/$',password_reset_confirm,{'template_name':'registration/confirmar.html'},name='password_reset_confirm'),
+    url(r'^reset/done', password_reset_complete, {'template_name':'registration/resetdone.html'},name='password_reset_complete'),
 ]

@@ -1,0 +1,46 @@
+
+<center>
+<div class="alert alert-info" role="alert">
+      <h2 class="text-center alert-heading">Restaurar contraseña </h2>
+</div>
+ <br>
+ <br>
+{% if validlink %}
+<form  method="post">
+	{% csrf_token %}
+    
+	 <div class="row" >
+    	<div class="col-md-6 col-md-offset-3">
+    		<div class="form-group">
+        		{{ form.new_password1.errors }}
+	             <label for="id_new_password1">Nueva contraseña:</label> 
+	            {{ form.new_password1 }}
+	             <br>
+	             <br>
+
+    	   </div>
+        </div>
+    </div>    
+    <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+    		<div class="form-group">
+
+        	{{ form.new_password2.errors }}
+	           <label for="id_new_password2">Confirme contraseña:</label>
+	        {{ form.new_password2 }}
+                <br>
+                <br>
+	           <input type="submit" value="Cambiar mi contraseña "/>	
+
+    	   </div>
+        </div>
+    </div>
+    
+    
+</form>
+{% else %}
+
+<h1 class="text-center">ENLACE INVALIDO: ESTE ENLACE YA HA SIDO UTILIZADO</h1>
+
+{% endif %}
+</center>
