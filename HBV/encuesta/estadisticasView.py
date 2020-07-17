@@ -35,7 +35,7 @@ class Estadistica(TemplateView):
 					acumulador_res = 0
 					for pre in preguntas_cat:
 						id_pregunta = pre.id_pregunta
-						respuestas_pre_cat = Respuesta.objects.filter(fk_id_pregunta = id_pregunta)	#2(1,1)
+						respuestas_pre_cat = Respuesta.objects.filter(fk_id_pregunta = id_pregunta)
 						for res in respuestas_pre_cat:
 							if res.valor == 1:
 								acumulador_res += 1

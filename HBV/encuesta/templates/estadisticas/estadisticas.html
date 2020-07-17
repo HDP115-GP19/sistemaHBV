@@ -46,39 +46,39 @@
 			<br>
 			<br>
 			<br>
-			<!-- Gráfico Categoría Miedo a contagiarse -->
-			<div class="col-lg-6">
-				<div id="container-miedo"></div>
-			</div>
+            <!-- Gráfico Categoría Trabajo -->
+            <div class="col-lg-6">
+                <div id="container-trabajo"></div>
+            </div>
 		</div>
 		<br>
 		<br>
 		<br>
 		<br>
 		<div class="row">
-			<!-- Gráfico Categoría Salud -->
-			<div class="col-lg-6">
-				<div id="container-salud"></div>
-			</div>
+            <!-- Gráfico Categoría Miedo a contagiarse -->
+            <div class="col-lg-6">
+                <div id="container-miedo"></div>
+            </div>
 			<br>
 			<br>
-			<!-- Gráfico Categoría Seguridad -->
-			<div class="col-lg-6">
-				<div id="container-seguridad"></div>
-			</div>
+            <!-- Gráfico Categoría Transporte -->
+            <div class="col-lg-6">
+                <div id="container-transporte"></div>
+            </div>
 		</div>
 		<br>
 		<br>
 		<br>
 		<br>	
 		<div class="row">
-			<!-- Gráfico Categoría Trabajo -->
-			<div class="col-lg-6">
-				<div id="container-trabajo"></div>
-			</div>
-            <!-- Gráfico Categoría Transporte -->
+			<!-- Gráfico Categoría Salud -->
             <div class="col-lg-6">
-                <div id="container-transporte"></div>
+                <div id="container-salud"></div>
+            </div>
+            <!-- Gráfico Categoría Seguridad -->
+            <div class="col-lg-6">
+                <div id="container-seguridad"></div>
             </div>
 		</div>
 		<br>
@@ -288,8 +288,8 @@
     }]
 	});
 
-    //Gráfico Categoría Miedo  a contagiarse
-        Highcharts.chart('container-miedo', {
+    //Gráfico Categoría Trabajo
+        Highcharts.chart('container-trabajo', {
     chart: {
         type: 'column'
     },
@@ -329,18 +329,18 @@
         colorByPoint: true,
         data: {{ data_dos_graph|safe }}
     }]
-    });    
+    }); 
 
-	//Gráfico Categoría Salud
-		Highcharts.chart('container-salud', {
+    //Gráfico Categoría Miedo  a contagiarse
+        Highcharts.chart('container-miedo', {
     chart: {
         type: 'column'
     },
     title: {
-        text: '{{ nombre_categoria_tres }}'
+        text: '{{nombre_categoria_tres}}'
     },
     subtitle: {
-        text: 'Probemas relacionados con {{ nombre_categoria_tres }}'
+        text: 'Probemas relacionados con {{nombre_categoria_tres}}'
     },
     xAxis: {
         categories: {{ categories_tres_graph|safe }},
@@ -372,11 +372,10 @@
         colorByPoint: true,
         data: {{ data_tres_graph|safe }}
     }]
-	});
+    });
 
-	
-    //Gráfico Categoría Seguridad
-        Highcharts.chart('container-seguridad', {
+    //Gráfico Categoría Transporte
+        Highcharts.chart('container-transporte', {
     chart: {
         type: 'column'
     },
@@ -416,18 +415,18 @@
         colorByPoint: true,
         data: {{ data_cuatro_graph|safe }}
     }]
-    }); 
+    });     
 
-	//Gráfico Categoría Trabajo
-		Highcharts.chart('container-trabajo', {
+	//Gráfico Categoría Salud
+		Highcharts.chart('container-salud', {
     chart: {
         type: 'column'
     },
     title: {
-        text: '{{nombre_categoria_cinco}}'
+        text: '{{ nombre_categoria_cinco }}'
     },
     subtitle: {
-        text: 'Probemas relacionados con {{nombre_categoria_cinco}}'
+        text: 'Probemas relacionados con {{ nombre_categoria_cinco }}'
     },
     xAxis: {
         categories: {{ categories_cinco_graph|safe }},
@@ -459,11 +458,11 @@
         colorByPoint: true,
         data: {{ data_cinco_graph|safe }}
     }]
-	});	
+	});
 
-
-	//Gráfico Categoría Transporte
-		Highcharts.chart('container-transporte', {
+	
+    //Gráfico Categoría Seguridad
+        Highcharts.chart('container-seguridad', {
     chart: {
         type: 'column'
     },
@@ -503,6 +502,7 @@
         colorByPoint: true,
         data: {{ data_seis_graph|safe }}
     }]
-	});	
+    }); 
+
 	</script>
 {% endblock %}
