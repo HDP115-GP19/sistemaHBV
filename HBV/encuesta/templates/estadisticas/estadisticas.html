@@ -46,9 +46,9 @@
 			<br>
 			<br>
 			<br>
-			<!-- Gráfico Categoría Escases -->
+			<!-- Gráfico Categoría Miedo a contagiarse -->
 			<div class="col-lg-6">
-				<div id="container-escases"></div>
+				<div id="container-miedo"></div>
 			</div>
 		</div>
 		<br>
@@ -56,15 +56,15 @@
 		<br>
 		<br>
 		<div class="row">
-			<!-- Gráfico Categoría Miedo a contagiarse -->
+			<!-- Gráfico Categoría Salud -->
 			<div class="col-lg-6">
-				<div id="container-miedo"></div>
+				<div id="container-salud"></div>
 			</div>
 			<br>
 			<br>
-			<!-- Gráfico Categoría Trabajo -->
+			<!-- Gráfico Categoría Seguridad -->
 			<div class="col-lg-6">
-				<div id="container-trabajo"></div>
+				<div id="container-seguridad"></div>
 			</div>
 		</div>
 		<br>
@@ -72,12 +72,14 @@
 		<br>
 		<br>	
 		<div class="row">
-			<!-- Gráfico Categoría Transporte -->
-			<div class="col-lg-12 center-block">
-				<div class="col-lg-6 ml-auto mr-auto">
-					<div id="container-transporte"></div>
-				</div>
+			<!-- Gráfico Categoría Trabajo -->
+			<div class="col-lg-6">
+				<div id="container-trabajo"></div>
 			</div>
+            <!-- Gráfico Categoría Transporte -->
+            <div class="col-lg-6">
+                <div id="container-transporte"></div>
+            </div>
 		</div>
 		<br>
 		<br>
@@ -286,16 +288,16 @@
     }]
 	});
 
-	//Gráfico Categoría Escases
-		Highcharts.chart('container-escases', {
+    //Gráfico Categoría Miedo  a contagiarse
+        Highcharts.chart('container-miedo', {
     chart: {
         type: 'column'
     },
     title: {
-        text: '{{ nombre_categoria_dos }}'
+        text: '{{nombre_categoria_dos}}'
     },
     subtitle: {
-        text: 'Probemas relacionados con {{ nombre_categoria_dos }}'
+        text: 'Probemas relacionados con {{nombre_categoria_dos}}'
     },
     xAxis: {
         categories: {{ categories_dos_graph|safe }},
@@ -327,18 +329,18 @@
         colorByPoint: true,
         data: {{ data_dos_graph|safe }}
     }]
-	});
+    });    
 
-	//Gráfico Categoría Miedo  a contagiarse
-		Highcharts.chart('container-miedo', {
+	//Gráfico Categoría Salud
+		Highcharts.chart('container-salud', {
     chart: {
         type: 'column'
     },
     title: {
-        text: '{{nombre_categoria_tres}}'
+        text: '{{ nombre_categoria_tres }}'
     },
     subtitle: {
-        text: 'Probemas relacionados con {{nombre_categoria_tres}}'
+        text: 'Probemas relacionados con {{ nombre_categoria_tres }}'
     },
     xAxis: {
         categories: {{ categories_tres_graph|safe }},
@@ -372,9 +374,9 @@
     }]
 	});
 
-
-	//Gráfico Categoría Trabajo
-		Highcharts.chart('container-trabajo', {
+	
+    //Gráfico Categoría Seguridad
+        Highcharts.chart('container-seguridad', {
     chart: {
         type: 'column'
     },
@@ -414,11 +416,10 @@
         colorByPoint: true,
         data: {{ data_cuatro_graph|safe }}
     }]
-	});	
+    }); 
 
-
-	//Gráfico Categoría Transporte
-		Highcharts.chart('container-transporte', {
+	//Gráfico Categoría Trabajo
+		Highcharts.chart('container-trabajo', {
     chart: {
         type: 'column'
     },
@@ -457,6 +458,50 @@
         showInLegend: false,
         colorByPoint: true,
         data: {{ data_cinco_graph|safe }}
+    }]
+	});	
+
+
+	//Gráfico Categoría Transporte
+		Highcharts.chart('container-transporte', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: '{{nombre_categoria_seis}}'
+    },
+    subtitle: {
+        text: 'Probemas relacionados con {{nombre_categoria_seis}}'
+    },
+    xAxis: {
+        categories: {{ categories_seis_graph|safe }},
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Acumulado'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:15px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>&nbsp;{point.y}</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Acumulado',
+        showInLegend: false,
+        colorByPoint: true,
+        data: {{ data_seis_graph|safe }}
     }]
 	});	
 	</script>

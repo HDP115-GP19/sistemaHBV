@@ -9,16 +9,16 @@
         <ul class="navbar-nav">
           <!-- Pariticipar llenado encuesta -->
           <li class="nav-item active">
-            <a class="nav-link" href="{%url 'encuesta:responder_encuesta' %}">Llenar encuesta <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{%url 'encuesta:responder_encuesta' %}"><i class="fas fa-clipboard-list fa-spin" style="color: #FFFFFF;"></i> Llenar encuesta <span class="sr-only">(current)</span></a>
           </li>
           <!-- Sobre nosotros -->
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'estadisticas' %}#SobreNosotros">Sobre nosotros <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'estadisticas' %}#SobreNosotros"><i class="fas fa-users" style="color: #FFFFFF;"></i> Sobre nosotros <span class="sr-only">(current)</span></a>
           </li>
           
           {% if user.is_authenticated %}
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'encuesta:pregunta_listar' %}">Admin <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'encuesta:pregunta_listar' %}"><i class="fas fa-user-cog"></i> Admin <span class="sr-only">(current)</span></a>
           </li>
          {% else %}
          
